@@ -3,14 +3,15 @@
 . /config/config.env
 
 CERTS=/data/certs
+OPTS="--accept-tos --path=$CERTS --email=$EMAIL --dns=$DNS --domains=$DOMAINS --key-type rsa2048 --dns.resolvers 8.8.8.8"
 
 while :
 do
     if [ -d "$CERTS" ]; then
-        ./lego --accept-tos --path="$CERTS" --email="$EMAIL" --dns="$DNS" --domains="$DOMAINS"  --dns.resolvers 8.8.8.8 renew --days 30
+        ./lego $OPTS renew --days 30
     else
         mkdir "$CERTS"
-        ./lego --accept-tos --path="$CERTS" --email="$EMAIL" --dns="$DNS" --domains="$DOMAINS"  --dns.resolvers 8.8.8.8 run
+        ./lego $OPTS run
     fi
     # 1day = 24*3600 = 86400
     sleep 86400
