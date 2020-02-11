@@ -1,0 +1,11 @@
+--- Makefile.orig	2020-02-11 16:07:33.000000000 +0900
++++ Makefile	2020-02-11 16:07:44.000000000 +0900
+@@ -23,7 +23,7 @@
+ 
+ build: clean
+ 	@echo Version: $(VERSION)
+-	go build -v -ldflags '-X "main.version=${VERSION}"' -o ${BIN_OUTPUT} ${MAIN_DIRECTORY}
++	go build -v -ldflags '-s -w -X "main.version=${VERSION}"' -o ${BIN_OUTPUT} ${MAIN_DIRECTORY}
+ 
+ image:
+ 	@echo Version: $(VERSION)
