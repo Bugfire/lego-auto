@@ -12,7 +12,7 @@ RUN patch -p0 < lego.strip.patch && make build
 
 FROM alpine:3.10
 RUN apk update \
-    && apk add --no-cache ca-certificates tzdata \
+    && apk add --no-cache ca-certificates tzdata curl \
     && update-ca-certificates
 
 WORKDIR /app

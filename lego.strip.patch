@@ -1,11 +1,11 @@
---- Makefile.orig	2020-02-11 16:07:33.000000000 +0900
-+++ Makefile	2020-02-11 16:07:44.000000000 +0900
-@@ -23,7 +23,7 @@
+--- Makefile.orig	2020-05-03 03:52:09.000000000 +0900
++++ Makefile	2020-05-03 03:52:53.000000000 +0900
+@@ -22,7 +22,7 @@
  
  build: clean
  	@echo Version: $(VERSION)
--	go build -v -ldflags '-X "main.version=${VERSION}"' -o ${BIN_OUTPUT} ${MAIN_DIRECTORY}
-+	go build -v -ldflags '-s -w -X "main.version=${VERSION}"' -o ${BIN_OUTPUT} ${MAIN_DIRECTORY}
+-	go build -v -trimpath -ldflags '-X "main.version=${VERSION}"' -o ${BIN_OUTPUT} ${MAIN_DIRECTORY}
++	go build -v -trimpath -ldflags '-s -w -X "main.version=${VERSION}"' -o ${BIN_OUTPUT} ${MAIN_DIRECTORY}
  
  image:
  	@echo Version: $(VERSION)
