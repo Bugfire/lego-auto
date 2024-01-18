@@ -15,10 +15,10 @@ touch $CUR_STATS
 while :
 do
     if [ -d "$CERTS" ]; then
-        ./lego $OPTS renew --days 30
+        /usr/bin/lego $OPTS renew --days 30
     else
         mkdir "$CERTS"
-        ./lego $OPTS run
+        /usr/bin/lego $OPTS run
     fi
 
     # get modification time
